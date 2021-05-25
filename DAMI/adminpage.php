@@ -245,10 +245,10 @@ if (!isset($_SESSION['adminusername'])) { //if the adminusername variable is bei
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Google maps</a>
+                    <a href="map.php">Google maps</a>
                   </li>
                   <li>
-                    <a href="#">Open street map</a>
+                    <a href="map.php">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -257,7 +257,7 @@ if (!isset($_SESSION['adminusername'])) { //if the adminusername variable is bei
               <span>Extra</span>
             </li>
             <li>
-              <a href="#">
+              <a href="documentation.php">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
                 <span class="badge badge-pill badge-primary">Beta</span>

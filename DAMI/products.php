@@ -55,7 +55,7 @@ if (!isset($_SESSION['adminusername'])) {
           </div>
           <!-- user information -->
           <div class="user-info">
-            <span class="user-name">Admin
+            <span class="user-name">
               <strong><?php echo $_SESSION['adminusername']; ?></strong>
             </span>
             <span class="user-role">Administrator</span>
@@ -118,17 +118,16 @@ if (!isset($_SESSION['adminusername'])) {
                 <span>Products</span>
 
                 <?php
-
-
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "dami";
-
+                // query for products
+                $servername = "localhost"; //set server name
+                $username = "root"; //default username
+                $password = ""; //default password
+                $dbname = "dami"; //my database name
+                // execute query
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+                // initialize count to 0
                 $count = 0;
-
+                // query that select all data from products table
                 $query = ("SELECT * FROM products;");
                 $query_run = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($query_run)) {
@@ -141,15 +140,11 @@ if (!isset($_SESSION['adminusername'])) {
               </a>
               <div class="sidebar-submenu">
                 <ul>
-                  <li>
-                    <a href="products.php">Products
-
-                    </a>
+              
                   </li>
                   <li>
                     <a href="seeorders.php">Orders</a>
                   </li>
-
 
                   <li>
                     <a href="seeorderhistory.php">Order History</a>
@@ -164,8 +159,7 @@ if (!isset($_SESSION['adminusername'])) {
                 <span>User Requests</span>
 
                 <?php
-
-
+                // query for user requests
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -200,7 +194,7 @@ if (!isset($_SESSION['adminusername'])) {
 
                 <?php
 
-
+                // query for product archived
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -231,10 +225,10 @@ if (!isset($_SESSION['adminusername'])) {
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Google maps</a>
+                    <a href="map.php">Google maps</a>
                   </li>
                   <li>
-                    <a href="#">Open street map</a>
+                    <a href="map.php">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -243,7 +237,7 @@ if (!isset($_SESSION['adminusername'])) {
               <span>Extra</span>
             </li>
             <li>
-              <a href="#">
+              <a href="documentation.php">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
@@ -301,7 +295,7 @@ if (!isset($_SESSION['adminusername'])) {
         <!-- CREATE PRODUCT -->
 
         <div class="container-fluid">
-
+                <!-- modal that will add products -->
 
           <button type="button" class="btn btn-outline-dark" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add Product
@@ -369,13 +363,7 @@ if (!isset($_SESSION['adminusername'])) {
           <!--  END CREATE PRODUCT -->
 
 
-
-
           <!-- DISPlAY PRODUCT -->
-
-
-
-
 
 
           <style>
@@ -389,7 +377,7 @@ if (!isset($_SESSION['adminusername'])) {
               background-repeat: no-repeat;
               /* Do not repeat the icon image */
               width: 35%;
-               /*width */
+              /*width */
               border-radius: 5px;
               /*border-radius of the input field */
               font-size: 16px;
@@ -442,6 +430,7 @@ if (!isset($_SESSION['adminusername'])) {
             th {
               font-size: 1rem;
             }
+
             /* END TABLE */
           </style>
 
@@ -472,7 +461,7 @@ if (!isset($_SESSION['adminusername'])) {
 
 
           <table id="myTable">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+          <h4>Search:&nbsp; <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand.."></h4>
 
             <thead class="table-dark">
 

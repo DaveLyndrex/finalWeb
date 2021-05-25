@@ -65,7 +65,7 @@ if (isset($_SESSION['adminusername'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Admin|Inventory management</title>
+    <title>Admin|Inventory Management System</title>
 
     <style>
         /* preloader */

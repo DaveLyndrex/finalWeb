@@ -2,7 +2,6 @@
 session_start();//setting session to username
 if (!isset($_SESSION['username'])) {//if the variable username is being set,
   header('location:index.php');// then it will set the location to index.php
-} else {
 }
 
 ?>
@@ -23,7 +22,7 @@ if (!isset($_SESSION['username'])) {//if the variable username is being set,
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="preloader/css/style.css">
-  <title>Requested Prodcuts</title>
+  <title>Requested Prodcuts|Inventory Management System</title>
 
 </head>
 <body id="body-pd">
@@ -44,7 +43,7 @@ if (!isset($_SESSION['username'])) {//if the variable username is being set,
         <a href="#" class="nav__logo">
           <i class='bx bx-layer nav__logo-icon'></i>
           <!-- header -->
-          <span class="nav__logo-name">ShopYow</span>
+          <span class="nav__logo-name"> <h3>ShopYow</h3></span>
         </a>
         <!-- class that displays sale products -->
         <div class="nav__list">
@@ -53,7 +52,7 @@ if (!isset($_SESSION['username'])) {//if the variable username is being set,
             <span class="nav__name">Dashboard</span>
           </a>
           <!-- user name -->
-          <a href="#" class="nav__link">
+          <a href="userpp.php" class="nav__link">
             <i class='bx bx-user nav__icon'></i>
             <span class="nav__name"><?php echo $_SESSION['username']; ?></span>
           </a>
@@ -73,9 +72,9 @@ if (!isset($_SESSION['username'])) {//if the variable username is being set,
             <span class="nav__name">Order History</span>
           </a>
 
-          <a href="#" class="nav__link">
+          <a href="about.php" class="nav__link">
             <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
-            <span class="nav__name">Analytics</span>
+            <span class="nav__name">About</span>
           </a>
         </div>
       </div>
@@ -250,7 +249,7 @@ if (!isset($_SESSION['username'])) {//if the variable username is being set,
     </script>
     <h1>Requested Products</h1>
     <table id="myTable">
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+     <h3>Search: &nbsp;<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand.."></h4> 
       <!-- table header  -->
       <thead class="table-dark">
         <tr>

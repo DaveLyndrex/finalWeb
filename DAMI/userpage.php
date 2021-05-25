@@ -1,8 +1,7 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-  header('location:index.php');
-} else {
+session_start(); //setting session for username
+if (!isset($_SESSION['username'])) { //if the variable username is being set,
+  header('location:index.php'); //then it will set the location to index.php
 }
 ?>
 <!DOCTYPE html>
@@ -11,7 +10,6 @@ if (!isset($_SESSION['username'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- PRODUCT LINKS -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,63 +25,66 @@ if (!isset($_SESSION['username'])) {
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="preloader/css/style.css">
-  <title>Available Products</title>
+  <title>Available Products|Inventory Management System</title>
 
 </head>
 <!-- navigation bar -->
+
 <body id="body-pd">
   <header class="header" id="header">
     <div class="header__toggle">
       <i class='bx bx-menu' id="header-toggle"></i>
     </div>
-<!-- char2 profile pic in the right part of the navigation bar -->
+    <!-- char2 profile pic in the right part of the navigation bar -->
     <div class="header__img">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-YXtrc-aHff09cYKAy_X-m46NN2hIyjbzfg&usqp=CAU" alt="wew" title="<?php echo $_SESSION['username']; ?>">
     </div>
   </header>
-<!-- side navigation bar -->
+  <!-- side navigation bar -->
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-      <!-- header -->
+        <!-- header -->
         <a href="#" class="nav__logo">
           <i class='bx bx-layer nav__logo-icon'></i>
-          <span class="nav__logo-name">ShowYow</span>
+          <span class="nav__logo-name">
+            <h3>ShowYow</h3>
+          </span>
         </a>
         <!--class displays the products -->
         <div class="nav__list">
           <a href="#" class="nav__link active">
             <i class='bx bx-grid-alt nav__icon'></i>
             <span class="nav__name">Dashboard</span>
-          </a>  
+          </a>
           <!-- user name -->
-          <a href="#" class="nav__link">
+          <a href="userpp.php" class="nav__link">
             <i class='bx bx-user nav__icon'></i>
             <span class="nav__name"><?php echo $_SESSION['username']; ?></span>
           </a>
-        <!-- all requeted products -->
+          <!-- all requeted products -->
           <a href="userrequestpage.php" class="nav__link">
             <i class='bx bx-message-square-detail nav__icon'></i>
             <span class="nav__name">All Request</span>
           </a>
-        <!-- ordered products -->
+          <!-- ordered products -->
           <a href="order.php" class="nav__link">
             <i class='bx bx-bookmark nav__icon'></i>
             <span class="nav__name">Order</span>
           </a>
-    <!-- order history -->
+          <!-- order history -->
           <a href="userorderhistory.php" class="nav__link">
             <i class='bx bx-folder nav__icon'></i>
             <span class="nav__name">Order History</span>
           </a>
-        <!-- char2 analytics -->
-          <a href="#" class="nav__link">
+          <!-- char2 analytics -->
+          <a href="about.php" class="nav__link">
             <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
-            <span class="nav__name">Analytics</span>
+            <span class="nav__name">About</span>
           </a>
         </div>
       </div>
-  <!-- logout icon -->
+      <!-- logout icon -->
       <a href="logout.php" class="nav__link">
         <i class='bx bx-log-out nav__icon'></i>
         <span class="nav__name">Log Out</span>
@@ -100,15 +101,17 @@ if (!isset($_SESSION['username'])) {
     </div>
   </div>
 
-  
+
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
     .accordion-item:last-of-type .accordion-button.collapsed {
       border-bottom-right-radius: calc(.25rem - 1px);
       border-bottom-left-radius: calc(.25rem - 1px);
       width: 20%;
       background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
     }
+
     .accordion-item:first-of-type .accordion-button {
       border-top-left-radius: calc(.25rem - 1px);
       border-top-right-radius: calc(.25rem - 1px);
@@ -125,6 +128,7 @@ if (!isset($_SESSION['username'])) {
       background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
       transition: 0.5s;
     }
+
     .accordion-item:hover {
       border: 1px solid black;
       border-radius: 30px;
@@ -150,6 +154,7 @@ if (!isset($_SESSION['username'])) {
       height: 71%;
 
     }
+
     .header-title {
       margin-top: auto;
     }
@@ -165,7 +170,7 @@ if (!isset($_SESSION['username'])) {
       /* Do not repeat the icon image */
       width: 35%;
       /* width */
-      border-radius:5px;
+      border-radius: 5px;
       /* radius of the search bar */
       font-size: 16px;
       /* Increase font-size */
@@ -251,7 +256,7 @@ if (!isset($_SESSION['username'])) {
 
     <!-- opening table -->
     <table id="myTable">
-    Search: &nbsp;  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+      <h4>Search: &nbsp; <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand.."></h4>
       <!-- header table dark -->
       <thead class="table-dark">
 
@@ -410,7 +415,6 @@ if (!isset($_SESSION['username'])) {
 
   <!--===== MAIN JS =====-->
   <style>
-
     /* PRELOADER */
     #overlay {
       position: fixed;
@@ -491,7 +495,8 @@ if (!isset($_SESSION['username'])) {
       font-size: 1.5rem;
       cursor: pointer;
     }
-/* navbar right position image */
+
+    /* navbar right position image */
     .header__img {
       width: 35px;
       height: 35px;

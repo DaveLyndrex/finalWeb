@@ -819,7 +819,6 @@ if (isset($_POST['ordernow'])) {
 
 
 
-
     $sql = "INSERT INTO `order`(`username`,`productId`,`productPhoto`, `productName`, `productBrand`, `productDescription`, `productPrice`, `quantity`, `fullName`, `address`,`contactEmail`,`paymentMethod`) VALUES ('$username','$orderProduct','$orderPhoto ',' $orderName','$orderBrand ',' $orderDescription ',' $orderPrice','$orderquantity',   '$orderFullName','$orderAddress','$orderContactEmail','$orderPaymentMethod')";
     // execute the query
 

@@ -1,9 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-  header('location:index.php');
-} else {
-}
+session_start();//set session to username
+if (!isset($_SESSION['username'])) {//if the variable username is being set,
+  header('location:index.php');//then it will set the location to index.php
+} 
 
 ?>
 <!DOCTYPE html>
@@ -12,89 +11,78 @@ if (!isset($_SESSION['username'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- PRODUCT LINKS -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-  <!-- END PRODUCTS -->
-
   <!-- ===== BOX ICONS ===== -->
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
   <!-- ===== CSS ===== -->
-
-
   <link rel="stylesheet" href="preloader/css/style.css">
-
-  <title>Sidebar menu responsive</title>
+  <title>Order History|Inventory Management System</title>
 </head>
 
 <body id="body-pd">
-
+<!-- navigation bar -->
   <header class="header" id="header">
     <div class="header__toggle">
       <i class='bx bx-menu' id="header-toggle"></i>
-
     </div>
-
+  <!-- user char2 profile picture -->
     <div class="header__img">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-YXtrc-aHff09cYKAy_X-m46NN2hIyjbzfg&usqp=CAU" alt="wew" title="<?php echo $_SESSION['username']; ?>">
     </div>
 
 
   </header>
-
+<!-- side navigation bar content -->
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
         <a href="#" class="nav__logo">
           <i class='bx bx-layer nav__logo-icon'></i>
-          <span class="nav__logo-name">Bedimcode</span>
+          <span class="nav__logo-name"><h3>ShopYow</h3></span>
         </a>
-
+          <!-- dashboard dropdown -->
         <div class="nav__list">
           <a href="userpage.php" class="nav__link active">
             <i class='bx bx-grid-alt nav__icon'></i>
             <span class="nav__name">Dashboard</span>
           </a>
-
-
-
-          <a href="#" class="nav__link">
+  <!-- user -->
+          <a href="userpp.php" class="nav__link">
             <i class='bx bx-user nav__icon'></i>
             <span class="nav__name"><?php echo $_SESSION['username']; ?></span>
           </a>
-
+<!-- all request -->
           <a href="userrequestpage.php" class="nav__link">
             <i class='bx bx-message-square-detail nav__icon'></i>
             <span class="nav__name">All Request</span>
           </a>
-
+<!-- order -->
           <a href="order.php" class="nav__link">
             <i class='bx bx-bookmark nav__icon'></i>
             <span class="nav__name">Order</span>
           </a>
-
+<!-- order history -->
           <a href="userorderhistory.php" class="nav__link">
             <i class='bx bx-folder nav__icon'></i>
             <span class="nav__name">Order History</span>
           </a>
-
-          <a href="#" class="nav__link">
+<!-- analytics -->
+          <a href="about.php" class="nav__link">
             <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
-            <span class="nav__name">Analytics</span>
+            <span class="nav__name">About</span>
           </a>
         </div>
       </div>
-
+<!-- log out icon -->
       <a href="logout.php" class="nav__link">
         <i class='bx bx-log-out nav__icon'></i>
         <span class="nav__name">Log Out</span>
@@ -109,14 +97,12 @@ if (!isset($_SESSION['username'])) {
         </div>
       </div>
     </div>
-
-
+<!-- closing -->
   </div>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-
+ 
   <style>
+  /* font */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 
@@ -264,7 +250,7 @@ if (!isset($_SESSION['username'])) {
 
     <!-- USERS  ORDER HISTORY -->
     <table id="myTable">
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+     <h4>Search: &nbsp;<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand.."></h4> 
 
       <thead class="table-dark">
 

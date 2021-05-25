@@ -29,12 +29,12 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <title>Ordered Prducts</title>
+  <title>Ordered Products</title>
 
 </head>
 
 <body>
-<!-- side navigation bar button -->
+  <!-- side navigation bar button -->
   <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
     <!-- side navigation bar content -->
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
-      <!-- side navigation bar header -->
+        <!-- side navigation bar header -->
         <div class="sidebar-brand">
           <a href="#">Administrator</a>
           <div id="close-sidebar">
@@ -53,17 +53,18 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
           <div class="user-pic">
             <img class="img-responsive img-rounded" src="https://media-exp1.licdn.com/dms/image/C4E03AQFisMIW2P7mgg/profile-displayphoto-shrink_200_200/0/1616488312756?e=1625097600&v=beta&t=o8aClgNYR7pQuEKUIS6tUhvHlwJssJhhb1xQ14lqjDw" alt="User picture">
           </div>
-
+          <!-- user information -->
           <div class="user-info">
             <span class="user-name">
               <strong><?php echo $_SESSION['adminusername']; ?></strong>
             </span>
+            <!-- rule(admin or user) -->
             <span class="user-role">Administrator</span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
             </span>
-
+            <!-- signout icon -->
             <a href="logoutadmin.php" class="nav__link">
               <i class='bx bx-log-out nav__icon'></i>
               <span class="nav__name text-muted"> <i class="fa fa-sign-out text-muted" aria-hidden="true"></i>Sign out</i></span>
@@ -116,17 +117,16 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                 <i class="fa fa-shopping-cart"></i>
                 <span>Products</span>
                 <?php
-
-
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "dami";
-
+                // query for products
+                $servername = "localhost"; //set server name
+                $username = "root"; //default user name
+                $password = ""; //default password
+                $dbname = "dami"; //my database name
+                //execure query for connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+                // initialize count to 0
                 $count = 0;
-
+                // query that selects all data from products table
                 $query = ("SELECT * FROM products;");
                 $query_run = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($query_run)) {
@@ -144,9 +144,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
 
                     </a>
                   </li>
-                  <li>
-                    <a href="#">Orders</a>
-                  </li>
+                
 
                   <li>
                     <a href="seeorderhistory.php">Order History</a>
@@ -160,8 +158,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                 <span>User Requests</span>
 
                 <?php
-
-
+                // query for user requests
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -196,8 +193,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                 <span>Products Archived</span>
 
                 <?php
-
-
+                // query for products archived
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -228,10 +224,10 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Google maps</a>
+                    <a href="map.php">Google maps</a>
                   </li>
                   <li>
-                    <a href="#">Open street map</a>
+                    <a href="map.php">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -240,7 +236,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
               <span>Extra</span>
             </li>
             <li>
-              <a href="#">
+              <a href="documentation.php">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
@@ -302,7 +298,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
             /* Do not repeat the icon image */
             width: 35%;
             /* Full-width */
-            border-radius:5px;
+            border-radius: 5px;
             /* radius of the search bar */
             font-size: 16px;
             /* Increase font-size */
@@ -329,7 +325,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
           #myTable td {
             text-align: left;
             /* Left-align text */
-       
+
           }
 
           #myTable tr {
@@ -349,9 +345,10 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
 
           }
 
-         th {
+          th {
             font-size: 1rem;
           }
+
           /* END TABLE */
         </style>
 
@@ -383,10 +380,8 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
 
         <!-- USERS  PRODUCT REQUEST -->
 
-
-
         <table id="myTable">
-          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+      <h4>Search: &nbsp;<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand.."></h4>  
 
           <thead class="table-dark">
 
@@ -418,7 +413,7 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
 
             </tr>
           </thead>
-
+          <!-- query for selecting all data in the order table -->
           <?php
           $servername = "localhost";
           $username = "root";
@@ -438,50 +433,32 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
               while ($row = $result->fetch_assoc()) {
 
           ?>
-
+                <!-- insert data via its value -->
                 <tr>
 
-
-
                   <td>
-
                     <?php echo  $row['username']; ?>
-
-
                   </td>
-
 
                   <td>
                     <?php echo  $row['productId']; ?>
-
                   </td>
-
 
                   <td>
-
                     <img alt="" width="40px" src="<?php echo $row['productPhoto']; ?>">
-
-
                   </td>
-
-
 
                   <td>
                     <?php echo  $row['productName']; ?>
                   </td>
 
-
-
-
                   <td>
                     <?php echo $row['productBrand']; ?>
                   </td>
 
-
                   <td>
                     <?php echo $row['productDescription']; ?>
                   </td>
-
 
                   <td>
                     <?php echo $row['productPrice']; ?>
@@ -491,8 +468,6 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                     <?php echo $row['quantity']; ?>
                   </td>
 
-
-
                   <td>
                     <?php echo $row['fullName']; ?>
                   </td>
@@ -501,24 +476,13 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                     <?php echo $row['address']; ?>
                   </td>
 
-
-
                   <td>
                     <?php echo $row['contactEmail']; ?>
                   </td>
 
-
                   <td>
                     <?php echo $row['paymentMethod']; ?>
                   </td>
-
-
-
-
-
-
-
-
 
                   <td>
                     <style>
@@ -527,59 +491,23 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
                       }
                     </style>
 
-
-
                     <a href="connection.php?approved=<?php echo $row['productId']; ?>&quantity=<?php echo $row['quantity']; ?>&productPhoto=<?php echo $row['productPhoto']; ?>&productName=<?php echo $row['productName']; ?>&productBrand=<?php echo $row['productBrand']; ?>&productDescription=<?php echo $row['productDescription']; ?>&productPrice=<?php echo $row['productPrice']; ?>&fullName=<?php echo $row['fullName']; ?>&address=<?php echo $row['address']; ?>&contactEmail=<?php echo $row['contactEmail']; ?>&paymentMethod=<?php echo $row['paymentMethod']; ?>&status=<?php echo $row['status']; ?>&username=<?php echo $row['username']; ?>" class="btn btn-success btn-sm">Approved</a>
-<br><br>
+                    <br><br>
                     <a href="connection.php?cancel=<?php echo $row['productId']; ?>&quantity=<?php echo $row['quantity']; ?>&productPhoto=<?php echo $row['productPhoto']; ?>&productName=<?php echo $row['productName']; ?>&productBrand=<?php echo $row['productBrand']; ?>&productDescription=<?php echo $row['productDescription']; ?>&productPrice=<?php echo $row['productPrice']; ?>&fullName=<?php echo $row['fullName']; ?>&address=<?php echo $row['address']; ?>&contactEmail=<?php echo $row['contactEmail']; ?>&paymentMethod=<?php echo $row['paymentMethod']; ?>&status=<?php echo $row['status']; ?>&username=<?php echo $row['username']; ?>" class="btn btn-danger btn-sm">Cancel</a>
-
-
                   </td>
 
-
-
-
-
-
-
                 </tr>
-
-
-
-
-
-
-
-
-
 
               <?php } ?>
 
             <?php } ?>
 
           <?php } ?>
-
-
-
+<!-- closing -->
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
       <!-- END  -->
-
-
-
 
       <footer class="text-center">
 
@@ -596,7 +524,6 @@ if (!isset($_SESSION['adminusername'])) { // id the variable adminusername is be
 </body>
 
 </html>
-
 
 <style>
   @keyframes swing {

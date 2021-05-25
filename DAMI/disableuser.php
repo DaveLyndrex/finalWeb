@@ -1,12 +1,11 @@
 <?php
-session_start();//setting session for adminusername
-if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is being set,
-  header('location:adminlogin.php');//then it will set the location tro adminlogin.php
+session_start(); //setting session for adminusername
+if (!isset($_SESSION['adminusername'])) { //if the variable adminusername is being set,
+  header('location:adminlogin.php'); //then it will set the location tro adminlogin.php
 } else {
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +32,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
 </head>
 
 <body>
-<!-- button for side navigation bar -->
+  <!-- button for side navigation bar -->
   <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
@@ -42,18 +41,20 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-brand">
-          <a href="#">pro sidebar</a>
+          <!-- side navigation bar header -->
+          <a href="#">Administrator</a>
           <div id="close-sidebar">
             <i class="fas fa-times"></i>
           </div>
         </div>
+        <!-- user profile picture -->
         <div class="sidebar-header">
           <div class="user-pic">
             <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
           </div>
-
+          <!-- rule (admin or user) -->
           <div class="user-info">
-            <span class="user-name">Admin
+            <span class="user-name">
               <strong><?php echo $_SESSION['adminusername']; ?></strong>
             </span>
             <span class="user-role">Administrator</span>
@@ -61,14 +62,14 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
               <i class="fa fa-circle"></i>
               <span>Online</span>
             </span>
-
+            <!-- sign out icon -->
             <a href="logoutadmin.php" class="nav__link">
               <i class='bx bx-log-out nav__icon'></i>
               <span class="nav__name text-muted"> <i class="fa fa-sign-out text-muted" aria-hidden="true"></i>Sign out</i></span>
             </a>
           </div>
         </div>
-        <!-- sidebar-header  -->
+        <!-- sidebar char2 search bar  -->
         <div class="sidebar-search">
           <div>
             <div class="input-group">
@@ -81,7 +82,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
             </div>
           </div>
         </div>
-        <!-- sidebar-search  -->
+
         <div class="sidebar-menu">
           <ul>
             <li class="header-menu">
@@ -116,16 +117,16 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
 
                 <?php
 
-
+                // db connection
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "dami";
-
+                // execute query
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+                // initialize count to 0
                 $count = 0;
-
+                // query that select all from products table
                 $query = ("SELECT * FROM products;");
                 $query_run = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($query_run)) {
@@ -161,8 +162,6 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
                 <span>User Requests</span>
 
                 <?php
-
-
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -194,10 +193,8 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
               <a href="seeproductarchived.php">
                 <i class="fa fa-chart-line"></i>
                 <span>Products Archived</span>
-
+                <!-- query for product archived -->
                 <?php
-
-
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -246,10 +243,10 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Google maps</a>
+                    <a href="map.php">Google maps</a>
                   </li>
                   <li>
-                    <a href="#">Open street map</a>
+                    <a href="map.php">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -258,7 +255,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
               <span>Extra</span>
             </li>
             <li>
-              <a href="#">
+              <a href="documentation.php">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
@@ -305,15 +302,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
         <h2>Disabled User's</h2>
         <hr>
         <br><br>
-
-
-
-
-
         <!-- DISPlAY USER -->
-
-
-
 
 
         <style>
@@ -326,8 +315,10 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
             /* Position the search icon */
             background-repeat: no-repeat;
             /* Do not repeat the icon image */
-            width: 100%;
+            width: 35%;
             /* Full-width */
+            border-radius: 5px;
+            /* radius of the search bar */
             font-size: 16px;
             /* Increase font-size */
             padding: 12px 20px 12px 40px;
@@ -382,12 +373,8 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
             font-size: 1rem;
           }
 
-
-
           /* END TABLE */
         </style>
-
-
 
         <script>
           function myFunction() {
@@ -416,7 +403,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
 
 
         <table id="myTable">
-          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for brand..">
+          <h4>Search:&nbsp;<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for user.."></h4>
 
           <thead class="table-dark">
 
@@ -433,23 +420,23 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
 
               <th scope="col" style="text-align:center">Action</th>
 
-
-
             </tr>
           </thead>
 
+          <!-- query for the table -->
           <?php
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "dami";
+          $servername = "localhost";//set the server name
+          $username = "root";//default username
+          $password = "";//default password
+          $dbname = "dami";//database name
 
+          //execute query
           $conn = new mysqli($servername, $username, $password, $dbname);
           //  echo $_SESSION['UserId'];
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           } else {
-
+            // query that will select all data from disableuser table
             $sql = "SELECT * FROM `disableuser`";
             $result = $conn->query($sql);
             $count = 1;
@@ -459,9 +446,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
           ?>
 
                 <tr>
-
-
-
+                <!-- inserting data  -->
                   <td style="text-align:center">
                     <?php echo  $row['username']; ?>
                   </td>
@@ -470,61 +455,25 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
                     <?php echo $row['email']; ?>
                   </td>
 
-
                   <td style="text-align:center">
                     <?php echo $row['password']; ?>
                   </td>
 
-
-
-
-
-
                   <td style="text-align:center">
-
-
                     <a href="connection.php?enableuser=<?php echo $row['ID']; ?>&username=<?php echo $row['username']; ?>&password=<?php echo $row['password']; ?>&email=<?php echo $row['email']; ?>" class="btn btn-danger">Enable User</a>
-
                   </td>
-
-
-
-
                 </tr>
-
-
 
               <?php } ?>
             <?php } ?>
           <?php } ?>
-
+<!-- closing -->
 
       </div>
   </div>
 
 
   <!-- END DISPLAY USER -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   <footer class="text-center">
@@ -543,7 +492,7 @@ if (!isset($_SESSION['adminusername'])) {//if the variable adminusername is bein
 
 </html>
 
-
+<!-- css -->
 <style>
   @keyframes swing {
     0% {

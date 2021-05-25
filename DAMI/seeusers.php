@@ -1,7 +1,7 @@
 <?php
 session_start(); //set session start
-if (!isset($_SESSION['adminusername'])) {
-  header('location:adminlogin.php');
+if (!isset($_SESSION['adminusername'])) { //if the variable adminusername is being set,
+  header('location:adminlogin.php'); //then it will set the location to adminlogin.php
 } else {
   //  
 }
@@ -40,27 +40,29 @@ if (!isset($_SESSION['adminusername'])) {
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-brand">
-        <!-- side navigation header -->
+          <!-- side navigation header -->
           <a href="#">Administrator</a>
           <div id="close-sidebar">
             <i class="fas fa-times"></i>
           </div>
         </div>
+        <!-- user profile picture -->
         <div class="sidebar-header">
           <div class="user-pic">
             <img class="img-responsive img-rounded" src="https://media-exp1.licdn.com/dms/image/C4E03AQFisMIW2P7mgg/profile-displayphoto-shrink_200_200/0/1616488312756?e=1625097600&v=beta&t=o8aClgNYR7pQuEKUIS6tUhvHlwJssJhhb1xQ14lqjDw" alt="User picture">
           </div>
-
+          <!-- user information -->
           <div class="user-info">
             <span class="user-name">
               <strong><?php echo $_SESSION['adminusername']; ?></strong>
             </span>
+            <!-- role(admin or user) -->
             <span class="user-role">Administrator</span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
             </span>
-
+            <!-- signout icon -->
             <a href="logoutadmin.php" class="nav__link">
               <i class='bx bx-log-out nav__icon'></i>
               <span class="nav__name text-muted"> <i class="fa fa-sign-out text-muted" aria-hidden="true"></i>Sign out</i></span>
@@ -113,18 +115,17 @@ if (!isset($_SESSION['adminusername'])) {
                 <i class="fa fa-shopping-cart"></i>
                 <span>Products</span>
 
-                <?php
-
-
+                <?php 
+                // db connection
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "dami";
-
+                // execute query
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+                //set count into 0
                 $count = 0;
-
+                //query that select all from product table
                 $query = ("SELECT * FROM products;");
                 $query_run = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($query_run)) {
@@ -136,6 +137,7 @@ if (!isset($_SESSION['adminusername'])) {
 
               </a>
               <div class="sidebar-submenu">
+              <!-- dropdown in side bar -->
                 <ul>
                   <li>
                     <a href="products.php">Products
@@ -158,19 +160,18 @@ if (!isset($_SESSION['adminusername'])) {
               <a href="#">
                 <i class="far fa-gem"></i>
                 <span>User Requests</span>
-
+                <!-- products functionalities -->
                 <?php
-
-
+                // db connection
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "dami";
-
+                // execure query
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+                // set count into 0
                 $count = 0;
-
+                // query that select all of request table.
                 $query = ("SELECT * FROM request;");
                 $query_run = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($query_run)) {
@@ -245,10 +246,10 @@ if (!isset($_SESSION['adminusername'])) {
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Google maps</a>
+                    <a href="map.php">Google maps</a>
                   </li>
                   <li>
-                    <a href="#">Open street map</a>
+                    <a href="map.php">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -257,7 +258,7 @@ if (!isset($_SESSION['adminusername'])) {
               <span>Extra</span>
             </li>
             <li>
-              <a href="#">
+              <a href="documentation.php">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
@@ -378,7 +379,7 @@ if (!isset($_SESSION['adminusername'])) {
               /* Do not repeat the icon image */
               width: 35%;
               /* Full-width */
-              border-radius:5px;
+              border-radius: 5px;
               /* radius of the search bar */
               font-size: 16px;
               /* Increase font-size */
@@ -405,7 +406,7 @@ if (!isset($_SESSION['adminusername'])) {
             #myTable td {
               text-align: left;
               /* Left-align text */
-              padding: 5px;
+             padding: 5px;
               /* Add padding */
             }
 
@@ -468,7 +469,7 @@ if (!isset($_SESSION['adminusername'])) {
 
 
           <table id="myTable">
-          <h4>Search: &nbsp; <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for user.."></h4>
+            <h4>Search: &nbsp; <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for user.."></h4>
 
             <thead class="table-dark">
 
@@ -554,28 +555,6 @@ if (!isset($_SESSION['adminusername'])) {
 
 
       <!-- END DISPLAY USER -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <footer class="text-center">
 
